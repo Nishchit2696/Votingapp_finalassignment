@@ -19,4 +19,10 @@
         <item name="colorOnPrimary">@color/white</item>
     </style>
 
+    <style name="nobar" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/purple_500</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+
 </resources>
