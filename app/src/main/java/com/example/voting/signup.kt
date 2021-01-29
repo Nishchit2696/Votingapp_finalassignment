@@ -62,7 +62,7 @@ class signup : AppCompatActivity() {
                     psw.requestFocus()
                     return@setOnClickListener
                 } else {
-                    val user = User(citizenship, password)
+                    val user = User(Firstname, lastname, email, province, city, citizenship, phonenumber, password)
                     CoroutineScope(Dispatchers.IO).launch {
                         UserDB
                                 .getInstance(this@signup)
