@@ -1,9 +1,112 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".signup">
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".login">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <ImageView
+        android:layout_width="180dp"
+        android:layout_height="110dp"
+        android:src="@drawable/np"
+        android:layout_marginBottom="30dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="REGISTER"
+        android:id="@+id/reg"
+        android:textSize="25dp"
+        android:layout_marginBottom="20dp"/>
+
+   <EditText
+       android:layout_width="300dp"
+       android:layout_height="wrap_content"
+       android:id="@+id/Frt"
+       android:textSize="20dp"
+       android:hint="First Name"
+       android:gravity="center"
+       android:layout_marginBottom="10dp"
+       android:background="@drawable/round_edittext"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/lat"
+        android:textSize="20dp"
+        android:hint="Last Name"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:background="@drawable/round_edittext"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/eml"
+        android:textSize="20dp"
+        android:hint="Email"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:background="@drawable/round_edittext"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/pro"
+        android:textSize="20dp"
+        android:hint="Province"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:background="@drawable/round_edittext"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/cty"
+        android:textSize="20dp"
+        android:hint="City/Village"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:background="@drawable/round_edittext"/>
+
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/ctz"
+        android:textSize="20dp"
+        android:hint="Citizenship Number"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:background="@drawable/round_edittext"/>
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/phn"
+        android:textSize="20dp"
+        android:hint="Phone Number"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:background="@drawable/round_edittext"/>
+    <EditText
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/psw"
+        android:textSize="20dp"
+        android:hint="Password"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:background="@drawable/round_edittext"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/sgn"
+        android:text="Register"
+        android:textColor="@android:color/white"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/round_button"/>
+
+
+</LinearLayout>
