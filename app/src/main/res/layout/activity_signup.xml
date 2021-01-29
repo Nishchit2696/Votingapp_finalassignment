@@ -102,7 +102,7 @@
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/rpsw"
+        android:id="@+id/rpw"
         android:textSize="20dp"
         android:hint="Re-Password"
         android:layout_marginBottom="10dp"
