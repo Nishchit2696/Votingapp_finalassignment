@@ -20,9 +20,9 @@ class UserRepository
         }
     }
     //login user
-    suspend fun checkUser(username:String,password:String):LoginResponse{
+    suspend fun checkUser(Citizenship:String,password:String):LoginResponse{
         return apiRequest {
-            userAPI.checkUser(username,password)
+            userAPI.checkUser(Citizenship,password)
         }
     }
 }

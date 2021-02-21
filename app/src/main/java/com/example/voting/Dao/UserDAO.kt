@@ -9,7 +9,7 @@ interface UserDAO {
     @Insert
     suspend fun registerUser(user: User)
 
-    @Query("select * from User where ctz = (:citizenship) and psw = (:password)")
+   // @Query("select * from User where ctz = (:citizenship) and psw = (:password)")
     suspend fun loginUser(citizenship : String, password : String) : User
 
     @Delete
