@@ -17,7 +17,7 @@ import kotlin.math.log
 
 class signup : AppCompatActivity() {
 
-    private lateinit var log : TextView
+    private lateinit var log: TextView
     private lateinit var Frt: EditText
     private lateinit var lat: EditText
     private lateinit var eml: EditText
@@ -37,8 +37,6 @@ class signup : AppCompatActivity() {
         Frt = findViewById(R.id.Frt);
         lat = findViewById(R.id.lat);
         eml = findViewById(R.id.eml);
-        pro = findViewById(R.id.pro);
-        cty = findViewById(R.id.cty);
         ctz = findViewById(R.id.ctz);
         phn = findViewById(R.id.phn);
         psw = findViewById(R.id.psw);
@@ -50,8 +48,6 @@ class signup : AppCompatActivity() {
                 val Firstname = Frt.text.toString()
                 val lastname = lat.text.toString()
                 val email = eml.text.toString()
-                val province = pro.text.toString()
-                val  city = cty.text.toString()
                 val citizenship = ctz.text.toString()
                 val phonenumber = phn.text.toString()
                 val password = psw.text.toString()
@@ -62,7 +58,7 @@ class signup : AppCompatActivity() {
                     psw.requestFocus()
                     return@setOnClickListener
                 } else {
-                    val user = User(Firstname, lastname, email, province, city, citizenship, phonenumber, password)
+                    val user = User(Firstname, lastname, email, citizenship, phonenumber, password)
                     CoroutineScope(Dispatchers.IO).launch {
                         UserDB
                                 .getInstance(this@signup)
@@ -80,7 +76,7 @@ class signup : AppCompatActivity() {
         }
 
         log = findViewById(R.id.log)
-        log.setOnClickListener{
+        log.setOnClickListener {
             val intent = Intent(this, login::class.java)
             startActivity(intent)
         }
