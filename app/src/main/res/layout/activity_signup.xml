@@ -10,76 +10,79 @@
     <ImageView
         android:layout_width="180dp"
         android:layout_height="110dp"
-        android:src="@drawable/np"
-        android:layout_marginBottom="30dp"/>
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/np" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="REGISTER"
-        android:id="@+id/reg"
-        android:textSize="25dp"
-        android:layout_marginBottom="20dp"/>
-
-   <EditText
-       android:layout_width="300dp"
-       android:layout_height="wrap_content"
-       android:id="@+id/Frt"
-       android:textSize="20dp"
-       android:hint="First Name"
-       android:gravity="center"
-       android:layout_marginBottom="10dp"
-       android:background="@drawable/round_edittext"/>
-
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/lat"
-        android:textSize="20dp"
-        android:hint="Last Name"
-        android:layout_marginBottom="10dp"
         android:gravity="center"
-        android:background="@drawable/round_edittext"/>
+        android:background="@drawable/round_edittext">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/Frt"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="First Name"
+            android:inputType="textPassword"
+            android:textSize="15sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/eml"
-        android:textSize="20dp"
-        android:hint="Email"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
-        android:background="@drawable/round_edittext"/>
+        android:background="@drawable/round_edittext">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/lat"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="Last Name"
+            android:inputType="textPassword"
+            android:textSize="15sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/pro"
-        android:textSize="20dp"
-        android:hint="Province"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
-        android:background="@drawable/round_edittext"/>
+        android:background="@drawable/round_edittext">
 
-    <EditText
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/eml"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Email"
+            android:inputType="textPassword"
+            android:textSize="15sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
         android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:id="@+id/cty"
-        android:textSize="20dp"
-        android:hint="City/Village"
-        android:layout_marginBottom="10dp"
+        android:layout_marginTop="5dp"
         android:gravity="center"
-        android:background="@drawable/round_edittext"/>
+        android:background="@drawable/round_edittext">
 
-    <EditText
-        android:layout_width="300dp"
-        android:layout_height="wrap_content"
-        android:id="@+id/ctz"
-        android:textSize="20dp"
-        android:hint="Citizenship Number"
-        android:layout_marginBottom="10dp"
-        android:gravity="center"
-        android:background="@drawable/round_edittext"/>
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/ctz"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Citizenship Number"
+            android:inputType="textPassword"
+            android:textSize="15sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
     <EditText
         android:layout_width="300dp"
         android:layout_height="wrap_content"
