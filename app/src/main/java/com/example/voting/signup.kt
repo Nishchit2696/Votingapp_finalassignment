@@ -21,12 +21,10 @@ class signup : AppCompatActivity() {
     private lateinit var Frt: EditText
     private lateinit var lat: EditText
     private lateinit var eml: EditText
-    private lateinit var pro: EditText
-    private lateinit var cty: EditText
     private lateinit var ctz: EditText
     private lateinit var phn: EditText
-    private lateinit var psw: EditText
-    private lateinit var rpw: EditText
+    private lateinit var pws: EditText
+    private lateinit var rpws: EditText
     private lateinit var sgn: Button
 
 
@@ -39,8 +37,8 @@ class signup : AppCompatActivity() {
         eml = findViewById(R.id.eml);
         ctz = findViewById(R.id.ctz);
         phn = findViewById(R.id.phn);
-        psw = findViewById(R.id.psw);
-        rpw = findViewById(R.id.rpw);
+        pws = findViewById(R.id.pws);
+        rpws = findViewById(R.id.rpws);
         sgn = findViewById(R.id.sgn)
         sgn.setOnClickListener {
 
@@ -50,12 +48,12 @@ class signup : AppCompatActivity() {
                 val email = eml.text.toString()
                 val citizenship = ctz.text.toString()
                 val phonenumber = phn.text.toString()
-                val password = psw.text.toString()
-                val repassword = rpw.text.toString()
+                val password = pws.text.toString()
+                val repassword = rpws.text.toString()
                 if (password != repassword) {
 
-                    psw.error = "Password does not match"
-                    psw.requestFocus()
+                    pws.error = "Password does not match"
+                    pws.requestFocus()
                     return@setOnClickListener
                 } else {
                     val user = User(Firstname, lastname, email, citizenship, phonenumber, password)
