@@ -19,18 +19,19 @@
         android:theme="@style/Theme.Voting">
         <activity android:name=".Dashboard"
             android:theme="@style/Splesh">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".signup"
             android:theme="@style/Splesh" />
         <activity
             android:name=".login"
-            android:theme="@style/Splesh" />
+            android:theme="@style/Splesh" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Splash"
             android:theme="@style/Splesh">
