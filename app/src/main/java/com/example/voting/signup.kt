@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.voting.Userdb.UserDB
 import com.example.voting.entity.User
+import com.example.voting.repository.UserRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -17,7 +18,6 @@ import kotlin.math.log
 
 class signup : AppCompatActivity() {
 
-    private lateinit var log: TextView
     private lateinit var Frt: EditText
     private lateinit var lat: EditText
     private lateinit var eml: EditText
@@ -55,27 +55,40 @@ class signup : AppCompatActivity() {
                     pws.requestFocus()
                     return@setOnClickListener
                 } else {
-                    val user = User(Firstname = Firstname, Lastname = lastname,Citizenship = citizenship,Phonenumber = phonenumber, Password= password)
+                    val user = User(
+                        Firstname = Firstname,
+                        Lastname = lastname,
+                        Citizenship = citizenship,
+                        Phonenumber = phonenumber,
+                        Password = password
+                    )
                     CoroutineScope(Dispatchers.IO).launch {
-                        UserDB
-                                .getInstance(this@signup)
-                                .getUserDao()
-                                .registerUser(user)
-                        withContext(Dispatchers.Main) {
-                            Toast.makeText(
+                        try {
+                            val userRepository = UserRepository()
+                            val response = userRepository.registerUser(user)
+                            if (response.success == true) {
+                                withContext(Dispatchers.Main) {
+                                    Toast.makeText(
+                                        this@signup,
+                                        "Register Successful",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
+                            }
+                        } catch (ex: Exception) {
+                            withContext(Dispatchers.Main) {
+                                Toast.makeText(
                                     this@signup,
-                                    "User Registered", Toast.LENGTH_SHORT
-                            ).show()
+                                    "Username already exists",
+                                    Toast.LENGTH_SHORT
+                                ).show()
+                            }
                         }
                     }
+
+                    // Api code goes here
                 }
             }
-        }
-
-        log = findViewById(R.id.log)
-        log.setOnClickListener {
-            val intent = Intent(this, login::class.java)
-            startActivity(intent)
         }
     }
 }
