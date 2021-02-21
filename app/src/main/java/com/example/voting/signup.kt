@@ -45,7 +45,6 @@ class signup : AppCompatActivity() {
             sgn.setOnClickListener {
                 val Firstname = Frt.text.toString()
                 val lastname = lat.text.toString()
-                val email = eml.text.toString()
                 val citizenship = ctz.text.toString()
                 val phonenumber = phn.text.toString()
                 val password = pws.text.toString()
@@ -56,7 +55,7 @@ class signup : AppCompatActivity() {
                     pws.requestFocus()
                     return@setOnClickListener
                 } else {
-                    val user = User(Firstname, lastname, email, citizenship, phonenumber, password)
+                    val user = User(Firstname = Firstname, Lastname = lastname,Citizenship = citizenship,Phonenumber = phonenumber, Password= password)
                     CoroutineScope(Dispatchers.IO).launch {
                         UserDB
                                 .getInstance(this@signup)
