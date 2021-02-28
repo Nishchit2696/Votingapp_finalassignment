@@ -46,7 +46,7 @@ class login : AppCompatActivity() {
         }
 
         submit.setOnClickListener{
-            login()
+            Login()
         }
     }
 
@@ -75,13 +75,13 @@ class login : AppCompatActivity() {
         ActivityCompat.requestPermissions(this@login, permissions, 1)
     }
 
-    private fun login() {
-        val username = cts.text.toString()
+    private fun Login() {
+        val citizenship = cts.text.toString()
         val password = paw.text.toString()
         CoroutineScope(Dispatchers.IO).launch {
             try {
                 val repository = UserRepository()
-                val response = repository.checkUser(username, password)
+                val response = repository.checkUser(citizenship, password)
                 if (response.success == true) {
                     ServiceBuilder.token = "Bearer " + response.token
                     startActivity(
@@ -96,7 +96,7 @@ class login : AppCompatActivity() {
                         val snack =
                                 Snackbar.make(
                                         linearLayout,
-                                        "Invalid credentials",
+                                        response.message.toString(),
                                         Snackbar.LENGTH_LONG
                                 )
                         snack.setAction("OK", View.OnClickListener {
@@ -110,7 +110,7 @@ class login : AppCompatActivity() {
                 withContext(Dispatchers.Main) {
                     Toast.makeText(
                             this@login,
-                            "Login error", Toast.LENGTH_SHORT
+                            ex.toString(), Toast.LENGTH_SHORT
                     ).show()
                 }
             }

@@ -1,5 +1,6 @@
 package com.example.voting
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -8,18 +9,27 @@ import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.voting.Adapter.SliderAdapter
+import de.hdodenhof.circleimageview.CircleImageView
 import kotlin.math.abs
 
 class Dashboard : AppCompatActivity() {
 
     private lateinit var viewPager2: ViewPager2
     private val sliderHandler = Handler()
+    private lateinit var passport: CircleImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
         viewPager2 = findViewById(R.id.viewPager_ImageSlider)
+        passport = findViewById(R.id.passport)
+
+        passport.setOnClickListener{
+            val intent = Intent(this, com.example.voting.passport::class.java)
+            startActivity(intent)
+        }
+
 
         val slideritem: MutableList<Slideritem> = ArrayList()
         slideritem.add(Slideritem(R.drawable.img1))

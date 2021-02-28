@@ -16,7 +16,7 @@
         android:layout_height="64dp"
         android:src="@drawable/np" />
 
-        <EditText
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nepal Goverment"
@@ -50,7 +50,6 @@
                 android:id="@+id/passport"
                 android:layout_width="149dp"
                 android:layout_height="173dp"
-                android:scaleType="centerInside"
                 android:layout_marginStart="20dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="16dp"
@@ -62,7 +61,6 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/vote"
-                android:scaleType="centerInside"
                 android:layout_width="149dp"
                 android:layout_height="173dp"
                 android:layout_marginStart="16dp"
@@ -77,11 +75,9 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/licence"
-            android:scaleType="centerInside"
             android:layout_width="149dp"
             android:layout_height="133dp"
             android:layout_gravity="center"
-            android:layout_marginTop="1dp"
             android:src="@drawable/licence"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"

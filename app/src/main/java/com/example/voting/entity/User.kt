@@ -24,6 +24,7 @@ data class User(
     val _id : String? = null,
     val Firstname : String? = null,
     val Lastname : String? = null,
+    val Email: String?=null,
     val Citizenship : String? = null,
     val Phonenumber : String? = null,
     val Password : String? = null
