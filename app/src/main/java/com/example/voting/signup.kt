@@ -1,5 +1,6 @@
 package com.example.voting
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -42,6 +43,7 @@ class signup : AppCompatActivity() {
                 val Firstname = Frt.text.toString()
                 val lastname = lat.text.toString()
                 val citizenship = ctz.text.toString()
+                val email = eml.text.toString()
                 val phonenumber = phn.text.toString()
                 val password = pws.text.toString()
                 val repassword = rpws.text.toString()
@@ -52,11 +54,12 @@ class signup : AppCompatActivity() {
                     return@setOnClickListener
                 } else {
                     val user = User(
-                        Firstname = Firstname,
-                        Lastname = lastname,
-                        Citizenship = citizenship,
-                        Phonenumber = phonenumber,
-                        Password = password
+                            Firstname = Firstname,
+                            Lastname = lastname,
+                            Email=email,
+                            Citizenship = citizenship,
+                            Phonenumber = phonenumber,
+                            Password = password
                     )
                     CoroutineScope(Dispatchers.IO).launch {
                         try {
@@ -66,8 +69,18 @@ class signup : AppCompatActivity() {
                                 withContext(Dispatchers.Main) {
                                     Toast.makeText(
                                         this@signup,
-                                        "Register Successful",
+                                        response.message.toString(),
                                         Toast.LENGTH_SHORT
+                                    ).show()
+                                    startActivity(Intent(this@signup, login::class.java))
+                                }
+                            }
+                            else{
+                                withContext(Dispatchers.Main) {
+                                    Toast.makeText(
+                                            this@signup,
+                                            response.message.toString(),
+                                            Toast.LENGTH_SHORT
                                     ).show()
                                 }
                             }
@@ -75,7 +88,7 @@ class signup : AppCompatActivity() {
                             withContext(Dispatchers.Main) {
                                 Toast.makeText(
                                     this@signup,
-                                    "Username already exists",
+                                    ex.toString(),
                                     Toast.LENGTH_SHORT
                                 ).show()
                             }
