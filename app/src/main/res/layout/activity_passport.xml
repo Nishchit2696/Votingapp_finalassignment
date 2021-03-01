@@ -76,22 +76,6 @@
         <EditText
             android:layout_width="375dp"
             android:layout_height="wrap_content"
-            android:id="@+id/Province"
-            android:hint="Province"
-            android:layout_gravity="center"
-            android:textSize="20sp"/>
-
-        <EditText
-            android:layout_width="375dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/City"
-            android:hint="City/Village"
-            android:layout_gravity="center"
-            android:textSize="20sp"/>
-
-        <EditText
-            android:layout_width="375dp"
-            android:layout_height="wrap_content"
             android:id="@+id/Phonenumber"
             android:hint="Phone Number"
             android:layout_gravity="center"

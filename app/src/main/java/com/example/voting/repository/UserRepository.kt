@@ -6,6 +6,7 @@ import com.example.voting.api.UserAPI
 import com.example.voting.entity.User
 import com.example.voting.response.LoginResponse
 
+
 class UserRepository
     : MyApiRequest() {
 
