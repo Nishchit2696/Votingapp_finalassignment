@@ -1,9 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".passport">
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".passport">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Passport Form"
+            android:textStyle="bold"
+            android:textSize="35sp"
+            android:gravity="center"
+            />
+
+        <ImageView
+            android:id="@+id/simage"
+            android:layout_gravity="center"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/noimg"/>
+        <EditText
+            android:id="@+id/Firstname"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:hint="First Name"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            />
+        <EditText
+            android:id="@+id/Lastname"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:hint="Last Name"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            />
+        <EditText
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/Fathername"
+            android:layout_gravity="center"
+            android:hint="Father Name"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:id="@+id/CitizenshipNo"
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:hint="Citizenship No."
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            />
+
+        <EditText
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/Ocupation"
+            android:hint="Occupation"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+        <EditText
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/Education"
+            android:hint="Eductaion"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/Province"
+            android:hint="Province"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/City"
+            android:hint="City/Village"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+
+        <EditText
+            android:layout_width="375dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/Phonenumber"
+            android:hint="Phone Number"
+            android:layout_gravity="center"
+            android:textSize="20sp"/>
+
+        <Button
+            android:id="@+id/btnsave"
+            android:layout_width="375sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#2196F3"
+            android:text="SAVE"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+</ScrollView>
