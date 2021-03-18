@@ -56,7 +56,7 @@ class signup : AppCompatActivity() {
                     val user = User(
                             Firstname = Firstname,
                             Lastname = lastname,
-                            Email=email,
+                            Email= email,
                             Citizenship = citizenship,
                             Phonenumber = phonenumber,
                             Password = password

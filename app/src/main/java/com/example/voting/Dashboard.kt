@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -16,7 +17,7 @@ class Dashboard : AppCompatActivity() {
 
     private lateinit var viewPager2: ViewPager2
     private val sliderHandler = Handler()
-    private lateinit var passport: CircleImageView
+    private lateinit var passport: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

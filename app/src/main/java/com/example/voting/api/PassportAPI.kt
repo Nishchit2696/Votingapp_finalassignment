@@ -1,6 +1,8 @@
 package com.example.voting.api
 
 import com.example.voting.entity.Passport
+import com.example.voting.response.AllPassportResponse
+import com.example.voting.response.DeletePassportResponse
 import com.example.voting.response.ImageResponse
 import com.example.voting.response.PassportResponse
 import okhttp3.MultipartBody
@@ -9,25 +11,25 @@ import retrofit2.http.*
 
 interface PassportAPI {
     //Add Student
-    @POST("/passport_insert")
+    @POST("passport_insert")
     suspend fun addpassport(
             @Header("Authorization") token : String,
             @Body passport: Passport
     ): Response<PassportResponse>
 
     //get all students
-    @GET("/passport/fetchall")
+    @GET("passport/fetchall")
     suspend fun getpassport(
             @Header("Authorization") token : String,
-    ): Response<PassportResponse>
+    ): Response<AllPassportResponse>
 
     //delete student
 
-    @DELETE("passport/delete/:vid")
-    suspend fun deleteStudent(
+    @DELETE("passport/delete/{id}")
+    suspend fun deletepassport(
             @Header("Authorization") token: String,
             @Path("id") id: String
-    ): Response<PassportResponse>
+    ): Response<DeletePassportResponse>
 
     @Multipart
     @PUT("student/{id}/photo")
