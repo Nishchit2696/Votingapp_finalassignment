@@ -37,6 +37,7 @@ class passport : AppCompatActivity() {
     private lateinit var Education: EditText
     private lateinit var Phonenumber: EditText
     private lateinit var btnsave: Button
+    private lateinit var btnshow:Button
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_passport)
@@ -50,6 +51,12 @@ class passport : AppCompatActivity() {
         Education = findViewById(R.id.Education)
         Phonenumber = findViewById(R.id.Phonenumber)
         btnsave = findViewById(R.id.btnsave)
+        btnshow = findViewById(R.id.btnshow)
+
+        btnshow.setOnClickListener{
+            val intent = Intent(this, com.example.voting.getpassport::class.java)
+            startActivity(intent)
+        }
 
         btnsave.setOnClickListener {
             val Firstname = Firstname.text.toString()
@@ -60,7 +67,14 @@ class passport : AppCompatActivity() {
             val Education = Education.text.toString()
             val Phonenumber = Phonenumber.text.toString()
             val passport =
-                    Passport(Firstname = Firstname, Lastname = Lastname, Fathername = Fathername, CitizenshipNo = CitizenshipNo,Ocupation = Ocupation,Education = Education, Phonenumber = Phonenumber  )
+                    Passport(
+                        Firstname = Firstname,
+                        Lastname = Lastname,
+                        Fathername = Fathername,
+                        CitizenshipNo = CitizenshipNo,
+                        Ocupation = Ocupation,
+                        Education = Education,
+                        Phonenumber = Phonenumber  )
 
             CoroutineScope(Dispatchers.IO).launch {
                 try {
@@ -68,7 +82,7 @@ class passport : AppCompatActivity() {
                     val response = passportRepostory.addpassport(passport)
                     if (response.success == true) {
                         if(imageUrl!= null){
-                            uploadImage(response.data !! . _id!!)
+                            uploadImage(response.data!!._id!!)
                         }
                         withContext(Dispatchers.Main) {
                             Toast.makeText(

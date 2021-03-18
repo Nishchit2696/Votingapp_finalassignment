@@ -89,6 +89,14 @@
             android:background="#2196F3"
             android:text="SAVE"
             android:textSize="20sp" />
+        <Button
+            android:id="@+id/btnshow"
+            android:layout_width="375sp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="#2196F3"
+            android:text="Show"
+            android:textSize="20sp" />
 
     </LinearLayout>
 </ScrollView>
