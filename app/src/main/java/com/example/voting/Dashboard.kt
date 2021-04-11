@@ -18,6 +18,7 @@ class Dashboard : AppCompatActivity() {
     private lateinit var viewPager2: ViewPager2
     private val sliderHandler = Handler()
     private lateinit var passport: ImageView
+    private lateinit var map: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,9 +26,14 @@ class Dashboard : AppCompatActivity() {
 
         viewPager2 = findViewById(R.id.viewPager_ImageSlider)
         passport = findViewById(R.id.passport)
+        map = findViewById(R.id.map)
 
         passport.setOnClickListener{
             val intent = Intent(this, com.example.voting.passport::class.java)
+            startActivity(intent)
+        }
+        map.setOnClickListener{
+            val intent = Intent(this, com.example.voting.MapsActivity::class.java)
             startActivity(intent)
         }
 
