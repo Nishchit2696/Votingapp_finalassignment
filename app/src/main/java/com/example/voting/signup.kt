@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import com.example.voting.entity.User
 import com.example.voting.repository.UserRepository
@@ -23,6 +24,7 @@ class signup : AppCompatActivity() {
     private lateinit var pws: EditText
     private lateinit var rpws: EditText
     private lateinit var sgn: Button
+    private lateinit var log: TextView
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,6 +39,12 @@ class signup : AppCompatActivity() {
         pws = findViewById(R.id.pws);
         rpws = findViewById(R.id.rpws);
         sgn = findViewById(R.id.sgn)
+        log = findViewById(R.id.log)
+
+        log.setOnClickListener{
+            val intent = Intent(this, login::class.java)
+            startActivity(intent)
+        }
         sgn.setOnClickListener {
 
             sgn.setOnClickListener {
