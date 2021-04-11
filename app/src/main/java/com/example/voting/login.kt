@@ -40,6 +40,8 @@ class login : AppCompatActivity() {
         chkRememberMe = findViewById(R.id.chkRememberMe)
         linearLayout = findViewById(R.id.linearLayout)
 
+        checkRunTimePermission()
+
         Register.setOnClickListener{
             val intent = Intent(this, signup::class.java)
             startActivity(intent)
