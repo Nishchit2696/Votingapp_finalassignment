@@ -51,6 +51,11 @@ class passport : AppCompatActivity() {
         btnsave = findViewById(R.id.btnsave)
         btnshow = findViewById(R.id.btnshow)
 
+        btnshow.setOnClickListener{
+            val intent = Intent(this,com.example.voting.getpassport::class.java)
+            startActivity(intent)
+        }
+
         simage.setOnClickListener{
             loadPopUpMenu()
         }

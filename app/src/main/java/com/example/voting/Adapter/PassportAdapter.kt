@@ -2,6 +2,7 @@ package com.example.voting.Adapter
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,7 +27,7 @@ class PassportAdapter(
 
 ): RecyclerView.Adapter<PassportAdapter.PassportViewHolder>(){
     class PassportViewHolder(view: View) : RecyclerView.ViewHolder(view){
-        //val simage: ImageView = view.findViewById(R.id.simage)
+        val simage: ImageView = view.findViewById(R.id.simage)
         val Firstname: TextView = view.findViewById(R.id.FirstN)
         val Lastname: TextView = view.findViewById(R.id.LastN)
         val Fathername: TextView = view.findViewById(R.id.fatherN)
@@ -55,7 +56,7 @@ class PassportAdapter(
         holder.Education.text = pasport.Education.toString()
         holder.Phonenumber.text = pasport.Phonenumber.toString()
 
-
+//
 //        holder.edit.setOnClickListener {
 //            val intent = Intent(context,UpdateActivity::class.java)
 //            intent.putExtra("student",student)
@@ -109,13 +110,13 @@ class PassportAdapter(
             alertDialog.setCancelable(false)
             alertDialog.show()
 
-           // val imagePath = ServiceBuilder.loadImagePath() + pasport.simage
-            //if (!pasport.simage.equals("no-photo.jpg")) {
-              //  Glide.with(context)
-                //        .load(imagePath)
-                  //      .fitCenter()
-                    //    .into(holder.simage)
-            //}
+            val imagePath = ServiceBuilder.loadImagePath() + pasport.simage
+            if (!pasport.simage.equals("no-photo.jpg")) {
+                Glide.with(context)
+                        .load(imagePath)
+                        .fitCenter()
+                        .into(holder.simage)
+            }
         }
     }
     override fun getItemCount(): Int {

@@ -4,7 +4,6 @@ import com.example.voting.api.MyApiRequest
 import com.example.voting.api.PassportAPI
 import com.example.voting.api.ServiceBuilder
 import com.example.voting.entity.Passport
-import com.example.voting.passport
 import com.example.voting.response.AllPassportResponse
 import com.example.voting.response.DeletePassportResponse
 import com.example.voting.response.ImageResponse
