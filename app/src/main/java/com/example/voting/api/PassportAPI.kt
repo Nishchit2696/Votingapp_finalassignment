@@ -10,9 +10,9 @@ import retrofit2.Response
 import retrofit2.http.*
 
 interface PassportAPI {
-    //Add Student
-    @POST("passport_insert")
-    suspend fun addpassport(
+    //Add passport
+    @POST("product_insert_app")
+    suspend fun insertPassport(
             @Header("Authorization") token : String,
             @Body passport: Passport
     ): Response<PassportResponse>
@@ -32,9 +32,8 @@ interface PassportAPI {
     ): Response<DeletePassportResponse>
 
     @Multipart
-    @PUT("student/{id}/photo")
+    @PUT("image/update/{id}")
     suspend fun uploadImage(
-        @Header("Authorization") token: String,
         @Path("id") id: String,
         @Part file: MultipartBody.Part
     ): Response<ImageResponse>

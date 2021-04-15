@@ -1,14 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:context=".passport">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".passport"
+    android:gravity="center">
 
         <TextView
             android:layout_width="match_parent"
@@ -22,81 +19,141 @@
         <ImageView
             android:id="@+id/simage"
             android:layout_gravity="center"
-            android:layout_width="200dp"
-            android:layout_height="200dp"
+            android:layout_width="150dp"
+            android:layout_height="100dp"
             android:src="@drawable/noimg"/>
-        <EditText
-            android:id="@+id/Firstname"
-            android:layout_width="375dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:hint="First Name"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            />
-        <EditText
-            android:id="@+id/Lastname"
-            android:layout_width="375dp"
-            android:layout_height="wrap_content"
-            android:hint="Last Name"
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            />
-        <EditText
-            android:layout_width="375dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/Fathername"
-            android:layout_gravity="center"
-            android:hint="Father Name"
-            android:textSize="20sp"/>
+            android:gravity="center"
+            android:background="@drawable/round_edittext">
 
-        <EditText
-            android:id="@+id/CitizenshipNo"
-            android:layout_width="375dp"
-            android:layout_height="wrap_content"
-            android:hint="Citizenship No."
-            android:layout_gravity="center"
-            android:textSize="20sp"
-            />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Firstname"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="First Name"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:layout_width="375dp"
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:id="@+id/Ocupation"
-            android:hint="Occupation"
-            android:layout_gravity="center"
-            android:textSize="20sp"/>
-        <EditText
-            android:layout_width="375dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/Education"
-            android:hint="Eductaion"
-            android:layout_gravity="center"
-            android:textSize="20sp"/>
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:background="@drawable/round_edittext">
 
-        <EditText
-            android:layout_width="375dp"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Lastname"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:hint="Last Name"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:id="@+id/Phonenumber"
-            android:hint="Phone Number"
-            android:layout_gravity="center"
-            android:textSize="20sp"/>
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:background="@drawable/round_edittext">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Fathername"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Father Name"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:background="@drawable/round_edittext">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/CitizenshipNo"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Citizenship Number"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:background="@drawable/round_edittext">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Ocupation"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Occupaticon"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:background="@drawable/round_edittext">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Education"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Education"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:background="@drawable/round_edittext">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/Phonenumber"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="Phone Number"
+                android:inputType="number"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/btnsave"
-            android:layout_width="375sp"
+            android:layout_width="295dp"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="#2196F3"
-            android:text="SAVE"
-            android:textSize="20sp" />
-        <Button
-            android:id="@+id/btnshow"
-            android:layout_width="375sp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="#2196F3"
-            android:text="Show"
-            android:textSize="20sp" />
+            android:layout_marginTop="5dp"
+            android:background="@drawable/round_button"
+            android:text="Register"
+            android:textColor="@android:color/white" />
+    <Button
+        android:id="@+id/btnshow"
+        android:layout_width="295dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/round_button"
+        android:text="Show"
+        android:textColor="@android:color/white" />
 
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

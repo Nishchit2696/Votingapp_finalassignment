@@ -45,7 +45,10 @@
         <activity android:name=".getpassport" />
         <activity
             android:name=".passport"
-            android:theme="@style/Splesh" />
+            android:theme="@style/Splesh" >
+
+        </activity>
+
         <activity
             android:name=".Dashboard"
             android:theme="@style/Splesh" />
@@ -63,6 +66,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
         <activity android:name=".MainActivity" />
     </application>
