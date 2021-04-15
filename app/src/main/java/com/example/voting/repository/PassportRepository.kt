@@ -19,11 +19,9 @@ class PassportRepository
 
     //Add Student
 
-    suspend fun addpassport(passport: Passport): PassportResponse {
+    suspend fun insertPassport(passport: Passport): PassportResponse {
         return apiRequest {
-            passportAPI.addpassport(
-                    ServiceBuilder.token!!, passport
-            )
+            passportAPI.insertPassport( ServiceBuilder.token!!, passport)
         }
     }
 
@@ -47,7 +45,7 @@ class PassportRepository
     suspend fun uploadImage(id: String, body: MultipartBody.Part)
             : ImageResponse {
         return apiRequest {
-            passportAPI.uploadImage(ServiceBuilder.token!!, id, body)
+            passportAPI.uploadImage(id, body)
         }
     }
 }
