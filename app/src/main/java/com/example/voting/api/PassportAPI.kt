@@ -1,10 +1,7 @@
 package com.example.voting.api
 
 import com.example.voting.entity.Passport
-import com.example.voting.response.AllPassportResponse
-import com.example.voting.response.DeletePassportResponse
-import com.example.voting.response.ImageResponse
-import com.example.voting.response.PassportResponse
+import com.example.voting.response.*
 import okhttp3.MultipartBody
 import retrofit2.Response
 import retrofit2.http.*
@@ -37,5 +34,12 @@ interface PassportAPI {
         @Path("id") id: String,
         @Part file: MultipartBody.Part
     ): Response<ImageResponse>
+
+    @PUT("passport/update/{id}")
+    suspend fun updatepassport(
+            @Header("Authorization") token: String,
+            @Path("id") id: String,
+            @Body passport: Passport
+    ): Response<UdatePassportResponse>
 
 }

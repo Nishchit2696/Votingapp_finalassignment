@@ -22,6 +22,6 @@ object ServiceBuilder {
     // Load image path
     fun loadImagePath(): String {
         val arr = BASE_URL.split("/").toTypedArray()
-        return arr[0] + "/" + arr[1] + arr[2] + "/uploads/"
+        return arr[0] + "/" + arr[1] + arr[2] + "/images/"
     }
 }

@@ -9,11 +9,14 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.voting.R
+import com.example.voting.UpdatePassport
 import com.example.voting.api.ServiceBuilder
 import com.example.voting.entity.Passport
+import com.example.voting.passport
 import com.example.voting.repository.PassportRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -41,20 +44,29 @@ class PassportAdapter(
 
     }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int):PassportViewHolder {
+
         val view = LayoutInflater.from(parent.context)
                 .inflate(R.layout.viewpassport, parent, false)
         return PassportViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: PassportAdapter.PassportViewHolder, position: Int) {
-        val pasport = lstpassport[position]
-        holder.Firstname.text = pasport.Firstname.toString()
-        holder.Lastname.text = pasport.Lastname.toString()
-        holder.Fathername.text = pasport.Fathername.toString()
-        holder.citizenshipNo.text = pasport.CitizenshipNo.toString()
-        holder.Occupation.text = pasport.Ocupation.toString()
-        holder.Education.text = pasport.Education.toString()
-        holder.Phonenumber.text = pasport.Phonenumber.toString()
+        val passport = lstpassport[position]
+        holder.Firstname.text = passport.Firstname.toString()
+        holder.Lastname.text = passport.Lastname.toString()
+        holder.Fathername.text = passport.Fathername.toString()
+        holder.citizenshipNo.text = passport.CitizenshipNo.toString()
+        holder.Occupation.text = passport.Ocupation.toString()
+        holder.Education.text = passport.Education.toString()
+        holder.Phonenumber.text = passport.Phonenumber.toString()
+
+        val imagePath = ServiceBuilder.loadImagePath() + passport.simage
+        if (!passport.simage.equals("no-photo.jpg")) {
+            Glide.with(context)
+                    .load(imagePath)
+                    .fitCenter()
+                    .into(holder.simage)
+        }
 
 //
 //        holder.edit.setOnClickListener {
@@ -63,18 +75,24 @@ class PassportAdapter(
 //            context.startActivity(intent)
 //        }
 
+        holder.edit.setOnClickListener{
+            val intent = Intent(context, UpdatePassport::class.java)
+                .putExtra("passport", passport)
+            startActivity(context,intent,null)
+        }
+
         holder.delete.setOnClickListener {
 
             val builder = AlertDialog.Builder(context)
             builder.setTitle("Delete Student")
-            builder.setMessage("Are You Sure You Want To Delete  ${pasport.Firstname} ?")
+            builder.setMessage("Are You Sure You Want To Delete  ${passport.Firstname} ?")
             builder.setIcon(android.R.drawable.ic_dialog_alert)
             builder.setPositiveButton("Yes") { _, _ ->
 
                 CoroutineScope(Dispatchers.IO).launch {
                     try {
                         val passportRepository = PassportRepository()
-                        val response = passportRepository.deletepassport(pasport._id!!)
+                        val response = passportRepository.deletepassport(passport._id!!)
                         if (response.success == true) {
                             withContext(Dispatchers.Main) {
                                 Toast.makeText(
@@ -86,17 +104,17 @@ class PassportAdapter(
                             }
                         }
                         withContext(Dispatchers.Main) {
-                            lstpassport.remove(pasport)
+                            lstpassport.remove(passport)
                             notifyDataSetChanged()
                         }
 
                     }catch (ex: Exception){
-                        withContext(Dispatchers.Main){
-                            Toast.makeText(context,
-                                    ex.toString(),
-                                    Toast.LENGTH_SHORT)
-                                    .show()
-                        }
+//                        withContext(Dispatchers.Main){
+//                            Toast.makeText(context,
+//                                    ex.toString(),
+//                                    Toast.LENGTH_SHORT)
+//                                    .show()
+//                        }
                     }
                 }
             }
@@ -109,14 +127,6 @@ class PassportAdapter(
             val alertDialog: AlertDialog = builder.create()
             alertDialog.setCancelable(false)
             alertDialog.show()
-
-            val imagePath = ServiceBuilder.loadImagePath() + pasport.simage
-            if (!pasport.simage.equals("no-photo.jpg")) {
-                Glide.with(context)
-                        .load(imagePath)
-                        .fitCenter()
-                        .into(holder.simage)
-            }
         }
     }
     override fun getItemCount(): Int {
