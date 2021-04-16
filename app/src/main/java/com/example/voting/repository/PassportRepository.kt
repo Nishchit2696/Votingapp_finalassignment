@@ -4,11 +4,7 @@ import com.example.voting.api.MyApiRequest
 import com.example.voting.api.PassportAPI
 import com.example.voting.api.ServiceBuilder
 import com.example.voting.entity.Passport
-import com.example.voting.passport
-import com.example.voting.response.AllPassportResponse
-import com.example.voting.response.DeletePassportResponse
-import com.example.voting.response.ImageResponse
-import com.example.voting.response.PassportResponse
+import com.example.voting.response.*
 import okhttp3.MultipartBody
 
 class PassportRepository
@@ -29,6 +25,14 @@ class PassportRepository
         return apiRequest {
             passportAPI.getpassport(
                     ServiceBuilder.token!!
+            )
+        }
+    }
+
+    suspend fun updatepassport(id:String, passport: Passport): UdatePassportResponse {
+        return apiRequest {
+            passportAPI.updatepassport(
+                    ServiceBuilder.token!! ,id, passport
             )
         }
     }

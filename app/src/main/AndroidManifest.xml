@@ -22,15 +22,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Voting"
         android:usesCleartextTraffic="true">
+        <activity android:name=".UpdatePassport"></activity>
         <activity
             android:name=".license"
-            android:theme="@style/Splesh">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/Splesh"></activity>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -46,11 +41,11 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps"
-            android:theme="@style/Splesh"></activity>
+            android:theme="@style/Splesh" />
         <activity android:name=".getpassport" />
         <activity
             android:name=".passport"
-            android:theme="@style/Splesh"></activity>
+            android:theme="@style/Splesh" />
         <activity
             android:name=".Dashboard"
             android:theme="@style/Splesh" />
@@ -63,7 +58,11 @@
         <activity
             android:name=".Splash"
             android:theme="@style/Splesh">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
     </application>
