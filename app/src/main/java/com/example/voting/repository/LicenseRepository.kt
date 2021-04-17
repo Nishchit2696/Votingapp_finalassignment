@@ -24,21 +24,21 @@ class LicenseRepository
         }
     }
 
-//    suspend fun getlicense(): AllLicenseResponse {
-//        return apiRequest {
-//            licenseAPI.getlicense(
-//                    ServiceBuilder.token!!
-//            )
-//        }
-//    }
-//
-//    suspend fun deletepassport(passport: String): DeleteLicenseResponse {
-//        return apiRequest {
-//            licenseAPI.deletelicense(
-//                    ServiceBuilder.token!!,passport
-//            )
-//        }
-//    }
+    suspend fun getlicense(): AllLicenseResponse {
+        return apiRequest {
+            licenseAPI.getlicense(
+                    ServiceBuilder.token!!
+            )
+        }
+    }
+
+    suspend fun deletepassport(passport: String): DeleteLicenseResponse {
+        return apiRequest {
+            licenseAPI.deletelicense(
+                    ServiceBuilder.token!!,passport
+            )
+        }
+    }
 
 
     suspend fun uploadImage(id: String, body: MultipartBody.Part)
