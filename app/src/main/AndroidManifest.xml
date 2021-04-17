@@ -22,10 +22,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Voting"
         android:usesCleartextTraffic="true">
-        <activity android:name=".UpdatePassport"></activity>
+        <activity android:name=".UpdatePassport" />
         <activity
             android:name=".license"
-            android:theme="@style/Splesh"></activity>
+            android:theme="@style/Splesh" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

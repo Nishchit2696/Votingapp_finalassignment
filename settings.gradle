@@ -1,2 +1,4 @@
+include ':wearvoting'
+include ':app:warevoting'
 include ':app'
 rootProject.name = "voting"
