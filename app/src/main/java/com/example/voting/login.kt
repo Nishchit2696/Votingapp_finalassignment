@@ -1,12 +1,17 @@
 package com.example.voting
 
+import android.app.NotificationChannel
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
 import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
+import com.example.voting.Notification.NotificationChannels
 import com.example.voting.api.ServiceBuilder
 import com.example.voting.entity.User
 import com.example.voting.repository.UserRepository
@@ -49,7 +54,23 @@ class login : AppCompatActivity() {
 
         submit.setOnClickListener{
             Login()
+            showHighPriorityNotification()
         }
+    }
+
+    private fun showHighPriorityNotification() {
+        val notificationManager = NotificationManagerCompat.from(this)
+
+        val notificationChannel = NotificationChannels (this)
+        notificationChannel.createNotificationChannels()
+
+        val notification = NotificationCompat.Builder(this, notificationChannel.CHANNEL_1)
+            .setSmallIcon(R.drawable.np)
+            .setContentTitle("Citizen notifies you")
+            .setContentText("Hello ${cts.text} Welcome to Citizen App")
+            .setColor(Color.GRAY)
+            .build()
+        notificationManager.notify(1, notification)
     }
 
     private fun checkRunTimePermission() {
