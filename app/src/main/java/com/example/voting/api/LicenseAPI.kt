@@ -1,6 +1,7 @@
 package com.example.voting.api
 
 import com.example.voting.entity.License
+import com.example.voting.entity.Passport
 import com.example.voting.response.*
 import okhttp3.MultipartBody
 import retrofit2.Response
@@ -33,5 +34,12 @@ interface LicenseAPI {
             @Path("id") id: String,
             @Part file: MultipartBody.Part
     ): Response<ImageResponse>
+
+    @PUT("license/update/{id}")
+    suspend fun updatelicense(
+        @Header("Authorization") token: String,
+        @Path("id") id: String,
+        @Body license: License
+    ): Response<UdateLicenseResponse>
 
 }

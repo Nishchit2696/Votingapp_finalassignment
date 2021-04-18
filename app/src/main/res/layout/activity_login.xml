@@ -37,7 +37,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="Enter Citizenship"
+                android:hint="Enter Citizenship No."
                 android:textSize="15sp" />
         </com.google.android.material.textfield.TextInputLayout>
     </LinearLayout>
@@ -64,7 +64,7 @@
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="Enter Citizenship"
+                android:hint="Enter Passport"
                 android:inputType="textPassword"
                 android:textSize="15sp" />
         </com.google.android.material.textfield.TextInputLayout>
