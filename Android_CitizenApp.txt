@@ -1,0 +1,41 @@
+Citizen App(voting)
+
+Introduction
+
+For this final poject for the android application development module. I have create a citizen app that has a 2 CRUD system 
+and API to improve proper the database.This application can be used my every citizen of the country. They used to fill the
+request form of the passport and license application.User can request for the passport and license, they can see the requested
+form and they can delet and update the request. This appplication will help all the citizen from wasting their time for the 
+making passport and license. Now user can request through this application which will save the time and effort for that 
+particular work. hence they can update the requested form if they have mistake the required filled And dellet that form.
+And government can taracked all the data digital with help database of this application. Used three sensor for the improve
+User Interface.
+
+Aim 
+
+- Request from for the passport and license. 
+- Perpare data base to improve record keeping digitally.
+- To save the time and making every goverment work digitally.
+
+
+Objective 
+
+-To provide digital record for the government.
+-To improve the recorda digital.
+-To provide facility. 
+-To provide the system digitally.
+-To save time of the citizen.
+
+Feature
+
+-Request form for the license and passport form.
+-Use 3 sensor to impove the User interface Gyroscop, Proxtomatrix, light sensor.
+-User freindly interface so that everybody can used it easy.
+-User have to register with citizenship Number.
+-User have to login with citizenship Number and passport.
+
+
+Feature Work
+-Implementing Voting system.
+-Implementing government database so user can get the User Certification on their phone. 
+-Implementing every Government work online.
