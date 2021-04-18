@@ -22,6 +22,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Voting"
         android:usesCleartextTraffic="true">
+
+        <activity android:name=".UpdateLicense"></activity>
+        <activity
+            android:name=".getlicense"
+            android:theme="@style/Splesh" />
         <activity android:name=".UpdatePassport" />
         <activity
             android:name=".license"

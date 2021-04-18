@@ -1,34 +1,63 @@
 package com.example.voting
 
 import android.content.Intent
+import android.graphics.Color
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.widget.ImageView
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
 import androidx.viewpager2.widget.ViewPager2
 import com.example.voting.Adapter.SliderAdapter
+import com.example.voting.api.ServiceBuilder
+import com.example.voting.entity.Passport
 import de.hdodenhof.circleimageview.CircleImageView
 import kotlin.math.abs
 
-class Dashboard : AppCompatActivity() {
+class Dashboard : AppCompatActivity(), SensorEventListener  {
 
     private lateinit var viewPager2: ViewPager2
     private val sliderHandler = Handler()
     private lateinit var passport: ImageView
     private lateinit var licence: ImageView
     private lateinit var map: ImageView
+    private lateinit var logout: ImageView
+    private lateinit var ll1 : LinearLayout
+    private lateinit var sensorManager: SensorManager
+    private  var sensor: Sensor? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_dashboard)
 
+        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
+
         viewPager2 = findViewById(R.id.viewPager_ImageSlider)
         passport = findViewById(R.id.passport)
         licence = findViewById(R.id.licence)
         map = findViewById(R.id.map)
+        logout = findViewById(R.id.logout)
+        ll1 = findViewById(R.id.ll1)
+
+        if (!checkSensor())
+            return
+        else{
+            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT)
+            sensorManager.registerListener(this,sensor, SensorManager.SENSOR_DELAY_NORMAL)
+        }
+
+        logout.setOnClickListener{
+            ServiceBuilder.token.equals("")
+            val intent = Intent(this, com.example.voting.login::class.java)
+            startActivity(intent)
+        }
 
         passport.setOnClickListener{
             val intent = Intent(this, com.example.voting.passport::class.java)
@@ -77,6 +106,15 @@ class Dashboard : AppCompatActivity() {
 
     }
 
+    private fun checkSensor(): Boolean {
+        var flag = true
+        if (sensorManager.getDefaultSensor(Sensor.TYPE_LIGHT) == null){
+            flag = false
+        }
+        return flag
+
+    }
+
     private val sliderRunnable = Runnable {
         viewPager2.currentItem = viewPager2.currentItem + 1
     }
@@ -89,5 +127,19 @@ class Dashboard : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         sliderHandler.postDelayed(sliderRunnable,3000)
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        val values = event!!.values[0]
+        if (values > 40 )
+            ll1.setBackgroundColor(Color.BLACK)
+
+        if (values < 40)
+            ll1.setBackgroundColor(Color.WHITE)
+
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+
     }
 }

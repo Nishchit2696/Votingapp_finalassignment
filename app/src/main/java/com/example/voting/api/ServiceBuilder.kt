@@ -7,6 +7,13 @@ import retrofit2.converter.gson.GsonConverterFactory
 object ServiceBuilder {
     private const val BASE_URL =
         "http://10.0.2.2:90/"
+
+//    private const val BASE_URL =
+//        "http://localhost:90/"
+
+//    private const val BASE_URL =
+//        "http://192.168.254.17:90/"    //lAP IP
+
     var token: String? = null
     private val okHttp = OkHttpClient.Builder()
     private val retrofitBuilder = Retrofit.Builder()

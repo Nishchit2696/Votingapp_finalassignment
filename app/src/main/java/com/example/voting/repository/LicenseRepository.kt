@@ -4,10 +4,8 @@ import com.example.voting.api.LicenseAPI
 import com.example.voting.api.MyApiRequest
 import com.example.voting.api.ServiceBuilder
 import com.example.voting.entity.License
-import com.example.voting.response.AllLicenseResponse
-import com.example.voting.response.DeleteLicenseResponse
-import com.example.voting.response.ImageResponse
-import com.example.voting.response.LicenseResponse
+import com.example.voting.entity.Passport
+import com.example.voting.response.*
 import okhttp3.MultipartBody
 
 class LicenseRepository
@@ -32,10 +30,18 @@ class LicenseRepository
         }
     }
 
-    suspend fun deletepassport(passport: String): DeleteLicenseResponse {
+    suspend fun updatelicense(id:String, license: License): UdateLicenseResponse {
+        return apiRequest {
+            licenseAPI.updatelicense(
+                ServiceBuilder.token!! ,id, license
+            )
+        }
+    }
+
+    suspend fun Deletelicense(license: String): DeleteLicenseResponse {
         return apiRequest {
             licenseAPI.deletelicense(
-                    ServiceBuilder.token!!,passport
+                    ServiceBuilder.token!!,license
             )
         }
     }

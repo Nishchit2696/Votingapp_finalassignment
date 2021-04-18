@@ -60,6 +60,12 @@ class license : AppCompatActivity() {
         simage.setOnClickListener{
             loadPopUpMenu()
         }
+
+        btnshow.setOnClickListener{
+            val intent = Intent(this,com.example.voting.getlicense::class.java)
+            startActivity(intent)
+        }
+
         btnsave.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 try {

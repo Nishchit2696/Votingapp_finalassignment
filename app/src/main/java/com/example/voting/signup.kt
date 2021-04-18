@@ -1,8 +1,13 @@
 package com.example.voting
 
 import android.content.Intent
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -14,7 +19,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class signup : AppCompatActivity() {
+class signup : AppCompatActivity(), SensorEventListener {
 
     private lateinit var Frt: EditText
     private lateinit var lat: EditText
@@ -25,11 +30,15 @@ class signup : AppCompatActivity() {
     private lateinit var rpws: EditText
     private lateinit var sgn: Button
     private lateinit var log: TextView
+    private lateinit var sensorManager: SensorManager
+    private  var sensor: Sensor? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
+
+        sensorManager = getSystemService(SENSOR_SERVICE) as SensorManager
 
         Frt = findViewById(R.id.Frt);
         lat = findViewById(R.id.lat);
@@ -41,11 +50,17 @@ class signup : AppCompatActivity() {
         sgn = findViewById(R.id.sgn)
         log = findViewById(R.id.log)
 
+        if (!checkSensor())
+            return
+        else{
+            sensor = sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY)
+            sensorManager.registerListener(this,sensor, SensorManager.SENSOR_DELAY_NORMAL)
+        }
+
         log.setOnClickListener{
             val intent = Intent(this, login::class.java)
             startActivity(intent)
         }
-        sgn.setOnClickListener {
 
             sgn.setOnClickListener {
                 val Firstname = Frt.text.toString()
@@ -107,5 +122,37 @@ class signup : AppCompatActivity() {
                 }
             }
         }
+
+    private fun checkSensor(): Boolean {
+        var flag = true
+        if (sensorManager.getDefaultSensor(Sensor.TYPE_PROXIMITY) == null){
+            flag = false
+        }
+        return flag
+
+    }
+
+    override fun onSensorChanged(event: SensorEvent?) {
+        val values = event!!.values[0]
+        val params = this.window.attributes
+        if (values < 4) {
+            CoroutineScope(Dispatchers.IO).launch {
+                try {
+                    withContext(Dispatchers.Main) {
+                        val intent = Intent(this@signup, login::class.java)
+                        startActivity(intent)
+                    }
+                }catch (ex: Exception){
+                    withContext(Dispatchers.Main){
+                        Toast.makeText(this@signup, "Error:$ex", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+        }
+    }
+
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+
     }
 }
+
